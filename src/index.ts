@@ -247,7 +247,7 @@ const rebasePullRequest = async ({
     owner,
     ref: `rebase-pull-request-${pullRequestNumber}`,
     repo,
-    sha: baseInitialSha,
+    sha: initialHeadSha,
   });
 };
 
