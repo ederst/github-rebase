@@ -216,7 +216,7 @@ const rebasePullRequest = async ({
   return withTemporaryRef({
     action: async temporaryRef => {
       debug({ temporaryRef });
-      const newSha = await performRebase({
+      /*const newSha = await performRebase({
         commitsDetails,
         octokit,
         owner,
@@ -240,7 +240,18 @@ const rebasePullRequest = async ({
         repo,
         sha: newSha,
       });
-      debug("ref updated");
+      debug("ref updated");*/
+      const newSha = initialHeadSha;
+
+      await updateRef({
+        force: true,
+        octokit,
+        owner,
+        ref: baseRef,
+        repo,
+        sha: newSha,
+      });
+
       return newSha;
     },
     octokit,
