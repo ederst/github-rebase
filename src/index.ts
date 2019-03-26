@@ -180,7 +180,7 @@ const rebasePullRequest = async ({
   pullRequestNumber: PullRequestNumber;
   repo: RepoName;
 }): Promise<Sha> => {
-  debug("starting", { pullRequestNumber, owner, repo });
+  debug("starting rebase", { pullRequestNumber, owner, repo });
 
   const {
     data: {
