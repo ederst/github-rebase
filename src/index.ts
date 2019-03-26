@@ -236,7 +236,7 @@ const rebasePullRequest = async ({
         force: true,
         octokit,
         owner,
-        ref: headRef,
+        ref: baseRef,
         repo,
         sha: newSha,
       });
