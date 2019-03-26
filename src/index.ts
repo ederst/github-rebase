@@ -241,7 +241,7 @@ const rebasePullRequest = async ({
         sha: newSha,
       });
       debug("ref updated");*/
-      const newSha = initialHeadSha;
+      //const newSha = ;
 
       await updateRef({
         force: true,
@@ -249,7 +249,15 @@ const rebasePullRequest = async ({
         owner,
         ref: baseRef,
         repo,
-        sha: newSha,
+        sha: initialHeadSha,
+      });
+
+      const newSha = await cherryPickCommits({
+        commits: [baseInitialSha],
+        head: initialHeadSha,
+        octokit,
+        owner,
+        repo,
       });
 
       return newSha;
